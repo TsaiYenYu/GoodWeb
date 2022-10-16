@@ -36,7 +36,7 @@ export default {
 
 .tabs {
   max-width: 100%;
-  mix-width: 400px;
+  min-width: 400px;
   padding-top: 20px;
   margin: 0 auto;
 }
@@ -50,11 +50,14 @@ export default {
 
 .tabs_header li {
   width: 25%;
+  min-height: 40px;
+  max-height: 60px;
   text-align: center;
   padding: 10px 10px;
   margin-left: 10px;
   margin-right: 10px;
   background-color: wheat;
+  color: black;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.4s all ease-in;
