@@ -1,24 +1,38 @@
 <template>
+
   <Sidebar/>
+
   <div class="about">
-<!--    <HelloWorld/>-->
+    <HelloWorld/>
   </div>
-
-<!--  <vue-split-view>-->
-
-<!--    <template #A-->
-<!--              a-min="200px"-->
-<!--              a-max="200px"-->
-<!--    >-->
-<!--      <Sidebar/>-->
-<!--    </template>-->
-
-<!--    <template #B>-->
-<!--      <div class="about">-->
-<!--        <h1>This is an about page</h1>-->
-<!--      </div>-->
-<!--    </template>-->
-<!--  </vue-split-view>-->
+  <div >
+    <vueper-slides>
+      <template #arrow-left>
+        <i class="icon icon-arrow-left" />
+      </template>
+      <template #arrow-right>
+        <i class="icon icon-arrow-right" />
+      </template>
+      <vueper-slide
+          v-for="(slide, i) in slides"
+          :key="i"
+          :title="slide.title"
+          :content="slide.content"
+          :style="'background-color: green'">
+        >
+      </vueper-slide>
+    </vueper-slides>
+  </div>
+<!--  <div >-->
+<!--    <vueper-slides>-->
+<!--      <vueper-slide-->
+<!--          v-for="(slide, i) in slides"-->
+<!--          :key="i"-->
+<!--          :title="slide.title"-->
+<!--          :content="slide.content">-->
+<!--      </vueper-slide>-->
+<!--    </vueper-slides>-->
+<!--  </div>-->
 
 </template>
 
@@ -35,6 +49,10 @@ const slides = [
   {
     title: 'Slide #1',
     content: 'Slide 1 content.'
+  },
+  {
+    title: 'Slide #2',
+    content: 'Slide 2 content.'
   },
   {
     title: 'Slide #2',
@@ -56,8 +74,9 @@ const slides = [
   }
 }
 
-.vueper-slides {
-  list-style: none;
+.siderfix {
+  position: relative;
+  left: 180px;
 }
 
 </style>
