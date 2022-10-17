@@ -35,21 +35,21 @@ export default {
 <style scoped>
 
 .tabs {
-  max-width: 100%;
-  min-width: 400px;
+  width: 100%;
   padding-top: 20px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .tabs_header {
   margin-bottom: 10px;
-  list-style: none;
   padding: 0;
   display: flex;
+  justify-content: center;
+  list-style: none;
 }
 
 .tabs_header li {
-  width: 25%;
+  width: 20%;
   min-height: 40px;
   max-height: 60px;
   text-align: center;
@@ -68,4 +68,25 @@ export default {
   color: white;
 }
 
+
+
+/* iphoneX */
+@media screen and (min-width: 375px) and (-webkit-device-pixel-ratio: 3) {
+
+}
+
+/* iphone6 7 8 plus */
+@media screen and (min-width: 414px) {
+
+}
+
+/* ipad */
+@media screen and (min-width: 768px) {
+
+}
+
+/* ipad pro */
+@media screen and (min-width: 1024px) {
+
+}
 </style>

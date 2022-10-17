@@ -24,15 +24,39 @@ export default {
 <style scoped>
 
 .tab-content {
-  /*max-height: 1200px;*/
-  /*height: 90%;*/
   min-height: 800px;
-  max-height: fit-content;
-  min-width: 800px;
-  max-width: fit-content;
+  width: 320px;
   padding: 0px;
   border-radius: 5px;
   box-shadow: 0 3px 5px 5px rgb(0, 0, 0, 0.05);
 }
 
+
+/* iphoneX */
+@media screen and (min-width: 375px) and (-webkit-device-pixel-ratio: 3) {
+  .tab-content {
+    width: 100%;
+  }
+}
+
+/* iphone6 7 8 plus */
+@media screen and (min-width: 414px) {
+  .tab-content {
+    width: 100%;
+  }
+}
+
+/* ipad */
+@media screen and (min-width: 768px) {
+  .tab-content {
+    width: 100%;
+  }
+}
+
+/* ipad pro */
+@media screen and (min-width: 1024px) {
+  .tab-content {
+    width: 100%;
+  }
+}
 </style>

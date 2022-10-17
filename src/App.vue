@@ -1,160 +1,154 @@
 <script setup lang="ts">
-import {ref} from 'vue';
+import { ref, onMounted, computed, onUnmounted } from 'vue';
 import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "./components/HelloWorld.vue";
 import TabsWrapper from "./components/TabsWrapper.vue";
 import Tab from "./components/Tab.vue";
 import HomeView from "@/views/HomeView.vue";
 import AboutView from "@/views/AboutView.vue";
+import SimpleSwiper from '@/components/swiper/SimpleSwiper.vue';
 
-import { VueperSlides, VueperSlide } from 'vueperslides';
-import 'vueperslides/dist/vueperslides.css'
+onMounted(() => {
+  window.addEventListener("resize", function () {
+    windowWidth.value = window.innerWidth;
+    console.log( 'window.screen.width');
+    console.log( window.screen);
+    console.log( window.screen.availWidth);
+    console.log( window.innerWidth);
+  });
+});
 
-import  { Swiper, SwiperSlide } from 'swiper/vue';
-  // core version + navigation, pagination modules:
-import { Autoplay, Pagination } from 'swiper';
-  // import Swiper and modules styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-
-const slides = [
-  {
-    title: 'Slide #1',
-    content: 'Slide 1 content.'
-  },
-  {
-    title: 'Slide #2',
-    content: 'Slide 2 content.'
-  },
-  {
-    title: 'Slide #2',
-    content: 'Slide 2 content.'
-  }
-]
-
-const onSwiper = (swiper: any) => {
-  console.log(new URL('./assets/logo.svg', import.meta.url).href);     
-};
-
-const onSlideChange = () => {
-  console.log('slide change');
-}
-
-const imageUrl = () => {
-  const pathString: string = new URL('/logo.svg', import.meta.url).href;
-  console.log(pathString);
-  return pathString;
-}
-const imageUrl2 = 'src/assets/logo.svg';
+onUnmounted(() => {
+  window.removeEventListener("resize", function () {
+    
+  });
+});
 
 const getAssetsFile = (url: string) => {
-  const ss =  new URL(`./assets/${url}`, import.meta.url).href;
-  console.log('getAssetsFile');
-  console.log(ss);
-  return new URL(`./assets/${url}`, import.meta.url).href;
+  return new URL(`./assets/logo/${url}`, import.meta.url).href;
 }
-const profilePic = ref('/src/assets/logo.svg');
+const resizeFont = ref("");
+let windowWidth = ref(window.innerWidth);
 
+const resize = computed(() => {
+  return windowWidth;
+});
 
 </script>
 
 <template>
-<div class="home-card">
-  <swiper
-    :slides-per-view="1"
-    :space-between="50"
-    @click=""
-    @swiper="onSwiper"
-    @slideChange=""
+  <main class="wrapper" 
+        :style="{width: windowWidth}"
   >
-    <swiper-slide> 
-       <img :src="getAssetsFile('/logo.svg')"
-            height="200"
-            width="200" 
-            alt="" />
-    </swiper-slide>
-    <swiper-slide> 
-       <img :src="'src/assets/logo.svg'" 
-            alt="" 
-            height="200" 
-            width="200" />
-    </swiper-slide>
-  </swiper>
-</div>
-
-  <div>
-    <vueper-slides>
-      <template #arrow-left>
-        <i class="icon icon-arrow-left" />
-      </template>
-      <template #arrow-right>
-        <i class="icon icon-arrow-right" />
-      </template>
-      <vueper-slide v-for="(slide, i) in slides" :key="i" :title="slide.title" :content="slide.content"
-        :style="'background-color: ' + 'red'">
-        >
-      </vueper-slide>
-    </vueper-slides>
-  </div>
-  <TabsWrapper>
-    <Tab title="Tab 1">
-      <AboutView />
-    </Tab>
-    <Tab title="Tab 2">
-      <HelloWorld msg="Hi" />
-    </Tab>
-    <Tab title="Tab 3">
-      <HomeView />
-    </Tab>
-    <Tab title="Tab 4">
-      <!-- <Swiper
-      :modules="modules"
-      :space-between="20"
-      :loop="true"
-      :pagination="{clickable:true}"
-      :autoplay="{
-        delay: 7000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      }"
-      >
-        <SwiperSlide
-        v-for="(slide, i) in slides" :key="i"
-        >
-        <div>
-          {{ slide.title }}
-        </div>
-        </SwiperSlide>
-      </Swiper> -->
-
-    </Tab>
-  </TabsWrapper>
+    <div>
+      <SimpleSwiper :imgPathList="['C.png', 'xd.png','C.png', 'xd.png','C.png', 'xd.png']" />
+    </div>
+    <TabsWrapper>
+      <Tab title="Tab 1">
+        <AboutView />
+      </Tab>
+      <Tab title="Tab 2">
+        <HelloWorld msg="Hi" />
+      </Tab>
+      <Tab title="Tab 3">
+        <HomeView />
+      </Tab>
+      <Tab title="Tab 4">
+      </Tab>
+    </TabsWrapper>
+  </main>
 </template>
 
 <style scoped>
-
-.home-card {
-  width: 100%;
-  height: 200px;
+.swiper-slide {
+  text-align: center;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
 }
 
-/* @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.wrapper {
+  /* padding: 8px; */
+  background-color: rgb(141, 235, 251);
+  min-width: 320px;
+  width: auto;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+/* @media screen and (min-width: 768px) {
+    .wrapper {
+        background-color: #ddd;
+    }
 } */
+
+
+/* iphoneX */
+@media screen and (min-width: 375px) and (-webkit-device-pixel-ratio: 3) {
+  .wrapper {
+    background-color: #0FF000;
+  }
+}
+
+/* iphone6 7 8 plus */
+@media screen and (min-width: 414px) {
+  .wrapper {
+    background-color: blue;
+  }
+}
+
+/* ipad */
+@media screen and (min-width: 768px) {
+  .wrapper {
+    background-color: green;
+    width: 768px;
+  }
+}
+
+/* ipad pro */
+@media screen and (min-width: 1024px) {
+  .wrapper {
+    background-color: #FF00FF;
+    min-width: 1024px;
+  }
+}
+
+/* pc */
+@media screen and (min-width: 1100px) {
+  .wrapper {
+    background-color: rgb(74, 3, 121);
+    min-width: 1100px;
+    width:1100px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .wrapper {
+    background-color: rgb(74, 3, 121);
+    min-width: 1200px;
+    width:1200px;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .wrapper {
+    background-color: rgb(74, 3, 121);
+    min-width: 1300px;
+    width:1300px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .wrapper {
+    background-color: rgb(74, 3, 121);
+    min-width: 1400px;
+    width:1400px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .wrapper {
+    background-color: rgb(74, 3, 121);
+    min-width: 1500px;
+    width:1500px;
+  }
+}
 </style>

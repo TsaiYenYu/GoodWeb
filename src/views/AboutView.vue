@@ -1,39 +1,8 @@
 <template>
-
   <Sidebar/>
-
   <div class="about">
     <HelloWorld/>
   </div>
-  <div >
-    <vueper-slides>
-      <template #arrow-left>
-        <i class="icon icon-arrow-left" />
-      </template>
-      <template #arrow-right>
-        <i class="icon icon-arrow-right" />
-      </template>
-      <vueper-slide
-          v-for="(slide, i) in slides"
-          :key="i"
-          :title="slide.title"
-          :content="slide.content"
-          :style="'background-color: green'">
-        >
-      </vueper-slide>
-    </vueper-slides>
-  </div>
-<!--  <div >-->
-<!--    <vueper-slides>-->
-<!--      <vueper-slide-->
-<!--          v-for="(slide, i) in slides"-->
-<!--          :key="i"-->
-<!--          :title="slide.title"-->
-<!--          :content="slide.content">-->
-<!--      </vueper-slide>-->
-<!--    </vueper-slides>-->
-<!--  </div>-->
-
 </template>
 
 <script setup>

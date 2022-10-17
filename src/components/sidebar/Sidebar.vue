@@ -58,14 +58,14 @@ export default {
   /*position: fixed;*/
 
   z-index: 1;
-  top: 0px;
-  left: 0;
+  top: 2px;
+  left: 2px;
   bottom: 0;
   padding: 0.4em;
 
   transition: 0.3s ease;
   border-radius: 5px;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
 }
 
@@ -92,5 +92,11 @@ export default {
 .rotate-180 {
   transform: rotate(180deg);
   transition: 0.2s linear;
+}
+
+@media screen and (min-width: 375px) and (-webkit-device-pixel-ratio: 3) {
+  .sidebar {
+    width: 50px;
+  }
 }
 </style>
