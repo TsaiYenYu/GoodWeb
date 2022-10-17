@@ -10,7 +10,7 @@ import SimpleSwiper from '@/components/swiper/SimpleSwiper.vue';
 
 onMounted(() => {
   window.addEventListener("resize", function () {
-    windowWidth.value = window.innerWidth;
+    windowWidth.value = window.innerWidth - 10;
     console.log( 'window.screen.width');
     console.log( window.screen);
     console.log( window.screen.availWidth);
@@ -71,20 +71,15 @@ const resize = computed(() => {
   /* padding: 8px; */
   background-color: rgb(141, 235, 251);
   min-width: 320px;
-  width: auto;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
-
-/* @media screen and (min-width: 768px) {
-    .wrapper {
-        background-color: #ddd;
-    }
-} */
-
 
 /* iphoneX */
 @media screen and (min-width: 375px) and (-webkit-device-pixel-ratio: 3) {
   .wrapper {
-    background-color: #0FF000;
+    background-color: royalblue;
   }
 }
 
@@ -92,6 +87,7 @@ const resize = computed(() => {
 @media screen and (min-width: 414px) {
   .wrapper {
     background-color: blue;
+    min-width: 414px;
   }
 }
 
@@ -99,7 +95,8 @@ const resize = computed(() => {
 @media screen and (min-width: 768px) {
   .wrapper {
     background-color: green;
-    width: 768px;
+    min-width: 768px;
+    /* width: 768px; */
   }
 }
 
@@ -107,7 +104,8 @@ const resize = computed(() => {
 @media screen and (min-width: 1024px) {
   .wrapper {
     background-color: #FF00FF;
-    min-width: 1024px;
+    min-width: 1000px;
+    /* width: windowWidth; */
   }
 }
 
@@ -115,8 +113,8 @@ const resize = computed(() => {
 @media screen and (min-width: 1100px) {
   .wrapper {
     background-color: rgb(74, 3, 121);
-    min-width: 1100px;
-    width:1100px;
+    min-width: 1080px;
+    /* width: windowWidth; */
   }
 }
 
@@ -124,31 +122,34 @@ const resize = computed(() => {
   .wrapper {
     background-color: rgb(74, 3, 121);
     min-width: 1200px;
-    width:1200px;
+        /* min-width: windowWidth; */
+    /* width:1200px; */
   }
 }
 
 @media screen and (min-width: 1300px) {
   .wrapper {
     background-color: rgb(74, 3, 121);
-    min-width: 1300px;
-    width:1300px;
+    /* min-width: windowWidth; */
+    /* min-width: 1300px; */
+    /* width:1300px; */
   }
 }
 
 @media screen and (min-width: 1400px) {
   .wrapper {
     background-color: rgb(74, 3, 121);
-    min-width: 1400px;
-    width:1400px;
+    /* min-width: windowWidth; */
+    /* min-width: 1400px; */
+    /* width:1400px; */
   }
 }
 
 @media screen and (min-width: 1500px) {
   .wrapper {
     background-color: rgb(74, 3, 121);
-    min-width: 1500px;
-    width:1500px;
+    /* min-width: 1500px; */
+    /* width:1500px; */
   }
 }
 </style>
