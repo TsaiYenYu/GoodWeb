@@ -36,16 +36,18 @@ export default {
 
 .tabs {
   width: 100%;
-  padding-top: 20px;
+  /* padding-top: 20px; */
   /* margin: 0 auto; */
 }
 
 .tabs_header {
   margin-bottom: 10px;
-  padding: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: flex;
   justify-content: center;
   list-style: none;
+  background-color: orange;
 }
 
 .tabs_header li {

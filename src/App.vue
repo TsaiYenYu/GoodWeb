@@ -43,7 +43,8 @@ const resize = computed(() => {
     <div>
       <SimpleSwiper :imgPathList="['C.png', 'xd.png','C.png', 'xd.png','C.png', 'xd.png']" />
     </div>
-    <TabsWrapper>
+    <div class="tabLine">
+      <TabsWrapper>
       <Tab title="Tab 1">
         <AboutView />
       </Tab>
@@ -56,20 +57,20 @@ const resize = computed(() => {
       <Tab title="Tab 4">
       </Tab>
     </TabsWrapper>
+    </div>
   </main>
 </template>
 
 <style scoped>
-.swiper-slide {
-  text-align: center;
-  background: #fff;
-  justify-content: center;
-  align-items: center;
+
+.tabLine {
+  /* background-color: rgb(171, 236, 21) */
 }
+
 
 .wrapper {
   /* padding: 8px; */
-  background-color: rgb(141, 235, 251);
+  background-color: white;
   min-width: 320px;
   width: 100%;
   justify-content: center;
@@ -86,7 +87,7 @@ const resize = computed(() => {
 /* iphone6 7 8 plus */
 @media screen and (min-width: 414px) {
   .wrapper {
-    background-color: blue;
+    /* background-color: blue; */
     min-width: 414px;
   }
 }
@@ -94,7 +95,7 @@ const resize = computed(() => {
 /* ipad */
 @media screen and (min-width: 768px) {
   .wrapper {
-    background-color: green;
+    /* background-color: green; */
     min-width: 768px;
     /* width: 768px; */
   }
@@ -103,7 +104,7 @@ const resize = computed(() => {
 /* ipad pro */
 @media screen and (min-width: 1024px) {
   .wrapper {
-    background-color: #FF00FF;
+    /* background-color: #FF00FF; */
     min-width: 1000px;
     /* width: windowWidth; */
   }
@@ -112,7 +113,7 @@ const resize = computed(() => {
 /* pc */
 @media screen and (min-width: 1100px) {
   .wrapper {
-    background-color: rgb(74, 3, 121);
+    /* background-color: rgb(74, 3, 121); */
     min-width: 1080px;
     /* width: windowWidth; */
   }
@@ -120,8 +121,8 @@ const resize = computed(() => {
 
 @media screen and (min-width: 1200px) {
   .wrapper {
-    background-color: rgb(74, 3, 121);
-    min-width: 1200px;
+    /* background-color: rgb(74, 3, 121); */
+    min-width: 1100px;
         /* min-width: windowWidth; */
     /* width:1200px; */
   }
@@ -129,7 +130,7 @@ const resize = computed(() => {
 
 @media screen and (min-width: 1300px) {
   .wrapper {
-    background-color: rgb(74, 3, 121);
+    /* background-color: rgb(74, 3, 121); */
     /* min-width: windowWidth; */
     /* min-width: 1300px; */
     /* width:1300px; */
@@ -138,7 +139,7 @@ const resize = computed(() => {
 
 @media screen and (min-width: 1400px) {
   .wrapper {
-    background-color: rgb(74, 3, 121);
+    /* background-color: rgb(74, 3, 121); */
     /* min-width: windowWidth; */
     /* min-width: 1400px; */
     /* width:1400px; */
@@ -147,7 +148,7 @@ const resize = computed(() => {
 
 @media screen and (min-width: 1500px) {
   .wrapper {
-    background-color: rgb(74, 3, 121);
+    /* background-color: rgb(74, 3, 121); */
     /* min-width: 1500px; */
     /* width:1500px; */
   }
