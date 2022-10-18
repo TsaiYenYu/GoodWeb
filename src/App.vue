@@ -9,30 +9,16 @@ import AboutView from "@/views/AboutView.vue";
 import SimpleSwiper from '@/components/swiper/SimpleSwiper.vue';
 
 onMounted(() => {
-  window.addEventListener("resize", function () {
-    windowWidth.value = window.innerWidth - 10;
-    console.log( 'window.screen.width');
-    console.log( window.screen);
-    console.log( window.screen.availWidth);
-    console.log( window.innerWidth);
-  });
+
 });
 
 onUnmounted(() => {
-  window.removeEventListener("resize", function () {
-    
-  });
+
 });
 
 const getAssetsFile = (url: string) => {
   return new URL(`./assets/logo/${url}`, import.meta.url).href;
 }
-const resizeFont = ref("");
-let windowWidth = ref(window.innerWidth);
-
-const resize = computed(() => {
-  return windowWidth;
-});
 
 </script>
 
@@ -105,7 +91,7 @@ const resize = computed(() => {
 @media screen and (min-width: 1024px) {
   .wrapper {
     /* background-color: #FF00FF; */
-    min-width: 1000px;
+    min-width: 970px;
     /* width: windowWidth; */
   }
 }
@@ -114,7 +100,7 @@ const resize = computed(() => {
 @media screen and (min-width: 1100px) {
   .wrapper {
     /* background-color: rgb(74, 3, 121); */
-    min-width: 1080px;
+    min-width: 200%;
     /* width: windowWidth; */
   }
 }
@@ -122,7 +108,7 @@ const resize = computed(() => {
 @media screen and (min-width: 1200px) {
   .wrapper {
     /* background-color: rgb(74, 3, 121); */
-    min-width: 1100px;
+    /* min-width: 1150px; */
         /* min-width: windowWidth; */
     /* width:1200px; */
   }
