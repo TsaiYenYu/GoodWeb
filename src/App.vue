@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import { ref, onMounted, computed, onUnmounted } from 'vue';
 import { RouterLink, RouterView } from "vue-router";
+
 import HelloWorld from "./components/HelloWorld.vue";
 import TabsWrapper from "./components/TabsWrapper.vue";
 import Tab from "./components/Tab.vue";
 import HomeView from "@/views/HomeView.vue";
 import AboutView from "@/views/AboutView.vue";
 import SimpleSwiper from '@/components/swiper/SimpleSwiper.vue';
+import { useCounterStore } from "./stores/counter.js";
+
+const store = useCounterStore();
 
 onMounted(() => {
 
@@ -24,8 +28,10 @@ const getAssetsFile = (url: string) => {
 
 <template>
   <main class="wrapper" 
-        :style="{width: windowWidth}"
   >
+     <div>
+      <button @click="store.fetchApi">CliCK   sss</button>
+    </div>
     <div>
       <SimpleSwiper :imgPathList="['C.png', 'xd.png','C.png', 'xd.png','C.png', 'xd.png']" />
     </div>

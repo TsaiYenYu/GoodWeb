@@ -19,11 +19,20 @@ const props = defineProps({
     imgTitleList: {
         type:  Array as PropType<string[]>,
         default: () => [],
+    },
+    imgWidth: {
+      type: Number,
+      default: 200,
+    },
+    imgHeight: {
+      type: Number,
+      default: 200,
     }
 })
 
+
 onMounted(() => {
-//    imgPathList = props.imgPathList;
+
 })
 
 const modules = [Autoplay, EffectFade];
@@ -40,6 +49,14 @@ const onSlideChange = () => {
   console.log('slide change');
 }
 
+const imgWidth = () => {
+  return props.imgWidth;
+}
+
+const imgHeight = () => {
+  return props.imgHeight;
+}
+
 const getAssetsFile = (url: string) => {
     return new URL(`../../assets/logo/${url}`, import.meta.url).href;
 }
@@ -54,7 +71,6 @@ const getAssetsFile = (url: string) => {
     :space-between="0"
     :speed="2400"
     :autoplay="{ delay: 4000, disableOnInteraction: false }"
-    
   >
     <swiper-slide
         v-for="(item,index) in imgPathList" :key="index"
@@ -62,9 +78,9 @@ const getAssetsFile = (url: string) => {
        <img
        class="swiper-img" 
        :src="getAssetsFile(item)"
-        height="200"
-        width="200" 
-        alt="" 
+       :width="imgWidth()" 
+       :height="imgHeight()"
+       alt="index" 
         />
     </swiper-slide
     >
@@ -73,14 +89,6 @@ const getAssetsFile = (url: string) => {
 </template>
 
 <style scoped>
-
-/* .swiper .swiper-pagination .swiper-pagination-bullet {
-  background: rgb(255, 255, 255);
-}
-.swiper .swiper-pagination .swiper-pagination-bullet-active {
-  background: rgb(255, 255, 255);
-} */
-
 
 .swiper-bg {
     background-color: antiquewhite;
