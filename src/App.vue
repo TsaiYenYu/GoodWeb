@@ -9,6 +9,7 @@ import HomeView from "@/views/HomeView.vue";
 import AboutView from "@/views/AboutView.vue";
 import SimpleSwiper from '@/components/swiper/SimpleSwiper.vue';
 import { useCounterStore } from "./stores/counter.js";
+import ColumnLayout from "./components/ColumnLayout.vue";
 
 const store = useCounterStore();
 
@@ -44,7 +45,8 @@ const getAssetsFile = (url: string) => {
         <AboutView />
       </Tab>
       <Tab title="Tab 2">
-        <HelloWorld msg="Hi" />
+        <!-- <HelloWorld msg="Hi" /> -->
+        <ColumnLayout class="layout"/>
       </Tab>
       <Tab title="Tab 3">
         <HomeView />
@@ -57,6 +59,12 @@ const getAssetsFile = (url: string) => {
 </template>
 
 <style scoped>
+
+.layout {
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+}
 
 .tabLine {
   /* background-color: rgb(171, 236, 21) */
