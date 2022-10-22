@@ -9,7 +9,8 @@ import HomeView from "@/views/HomeView.vue";
 import AboutView from "@/views/AboutView.vue";
 import SimpleSwiper from '@/components/swiper/SimpleSwiper.vue';
 import { useCounterStore } from "./stores/counter.js";
-import ColumnLayout from "./components/ColumnLayout.vue";
+import  SunCloudJson from "./assets/lottieJson/sunCloud.json";
+// import ColumnLayout from "./components/ColumnLayout.vue";
 
 const store = useCounterStore();
 
@@ -45,8 +46,7 @@ const getAssetsFile = (url: string) => {
         <AboutView />
       </Tab>
       <Tab title="Tab 2">
-        <!-- <HelloWorld msg="Hi" /> -->
-        <ColumnLayout class="layout"/>
+        <Vue3Lottie :animationData="SunCloudJson" :height="200" :width="200" />
       </Tab>
       <Tab title="Tab 3">
         <HomeView />

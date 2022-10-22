@@ -42,6 +42,6 @@ const app = createApp(App);
 app.use(createPinia());
 app.use(router);
 app.use(naive)
-app..use(Vue3Lottie)
+app.use(Vue3Lottie)
 app.mount("#app");
 
