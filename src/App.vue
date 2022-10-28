@@ -31,12 +31,7 @@ const getAssetsFile = (url: string) => {
 <template>
   <main class="wrapper" 
   >
-     <div>
-      <button @click="store.fetchApi">CliCK   sss</button>
-    </div>
-    <n-button type="primary">
-      Primary
-    </n-button>
+
     <div>
       <SimpleSwiper :imgPathList="['C.png', 'xd.png','C.png', 'xd.png','C.png', 'xd.png']" />
     </div>

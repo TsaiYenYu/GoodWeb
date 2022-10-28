@@ -20,6 +20,7 @@ import {
     NLayoutSider,
     NSpace,
     NGrid,
+    NGridItem,
     
 } from "naive-ui";
 
@@ -34,6 +35,7 @@ const naive = create({
       NLayoutSider,
       NSpace,
       NGrid,
+      NGridItem,
     ]  
 })
 
