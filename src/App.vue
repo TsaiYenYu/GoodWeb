@@ -9,7 +9,8 @@ import HomeView from "@/views/HomeView.vue";
 import AboutView from "@/views/AboutView.vue";
 import SimpleSwiper from '@/components/swiper/SimpleSwiper.vue';
 import { useCounterStore } from "./stores/counter.js";
-import  SunCloudJson from "./assets/lottieJson/sunCloud.json";
+import SunCloudJson from "./assets/lottieJson/sunCloud.json";
+import ColumnLayout from './components/ColumnLayout.vue';
 // import ColumnLayout from "./components/ColumnLayout.vue";
 
 const store = useCounterStore();
@@ -26,40 +27,55 @@ const getAssetsFile = (url: string) => {
   return new URL(`./assets/logo/${url}`, import.meta.url).href;
 }
 
+const imageList = ['swift_icon.png', 'OC_icon.png', 'php.png', 'logo.svg', 'laravel_icon.png', 'js_icon.png'];
+
 </script>
 
 <template>
-  <main class="wrapper" 
-  >
-     <div>
+  <main class="wrapper">
+    <!-- <div>
       <button @click="store.fetchApi">CliCK   sss</button>
     </div>
     <n-button type="primary">
       Primary
-    </n-button>
+    </n-button> -->
     <div>
-      <SimpleSwiper :imgPathList="['C.png', 'xd.png','C.png', 'xd.png','C.png', 'xd.png']" />
+      <SimpleSwiper :imgPathList="imageList" />
     </div>
     <div class="tabLine">
       <TabsWrapper>
-      <Tab title="Tab 1">
-        <AboutView />
-      </Tab>
-      <Tab title="Tab 2">
-        <Vue3Lottie :animationData="SunCloudJson" :height="200" :width="200" />
-      </Tab>
-      <Tab title="Tab 3">
-        <HomeView />
-      </Tab>
-      <Tab title="Tab 4">
-      </Tab>
-    </TabsWrapper>
+        <Tab title="Tab 1">
+          <div>
+            <SimpleSwiper :imgPathList="imageList" />
+          </div>
+          <n-grid cols="2 s:3 m:4 l:5 xl:6 2xl:7" responsive="screen">
+            <n-grid-item v-for="item in imageList" align-items: center>
+              <n-image 
+                :width="200"
+                :height="200" 
+                :src="getAssetsFile(item)" />
+              <div class="icon_text">
+                {{item}}
+              </div>
+            </n-grid-item>
+          </n-grid>
+
+        </Tab>
+        <Tab title="Tab 2">
+          <Vue3Lottie :animationData="SunCloudJson" :height="200" :width="200" />
+        </Tab>
+        <Tab title="Tab 3">
+          <HomeView />
+        </Tab>
+        <Tab title="Tab 4">
+          <ColumnLayout />
+        </Tab>
+      </TabsWrapper>
     </div>
   </main>
 </template>
 
 <style scoped>
-
 .layout {
   width: 90%;
   justify-content: center;
@@ -126,7 +142,7 @@ const getAssetsFile = (url: string) => {
   .wrapper {
     /* background-color: rgb(74, 3, 121); */
     /* min-width: 1150px; */
-        /* min-width: windowWidth; */
+    /* min-width: windowWidth; */
     /* width:1200px; */
   }
 }
@@ -155,5 +171,28 @@ const getAssetsFile = (url: string) => {
     /* min-width: 1500px; */
     /* width:1500px; */
   }
+}
+
+.light-green {
+  height: 108px;
+  background-color: rgba(0, 128, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.green {
+  height: 108px;
+  background-color: rgba(0, 128, 0, 0.24);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon_text {
+  text-align: center;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
 }
 </style>
