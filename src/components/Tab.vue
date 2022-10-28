@@ -11,7 +11,7 @@ export default {
   name: "Tab",
   props: ['title'],
   setup() {
-    const selectedTitle = inject('selectedTitle')
+    const  selectedTitle = inject('selectedTitle')
     return {
       selectedTitle,
     }
